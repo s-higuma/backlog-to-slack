@@ -17,15 +17,15 @@ module.exports = (robot) ->
     try
       switch body.type
           when 1
-              label = '‰Û‘è‚Ì’Ç‰Á'
+              label = 'èª²é¡Œã®è¿½åŠ '
           when 2, 3
-              # uXVv‚ÆuƒRƒƒ“ƒgv‚ÍÀÛ‚Íˆê‚Ég‚¤‚Ì‚ÅAˆê‚ÉB
-              label = '‰Û‘è‚ÌXV'
+              # ã€Œæ›´æ–°ã€ã¨ã€Œã‚³ãƒ¡ãƒ³ãƒˆã€ã¯å®Ÿéš›ã¯ä¸€ç·’ã«ä½¿ã†ã®ã§ã€ä¸€ç·’ã«ã€‚
+              label = 'èª²é¡Œã®æ›´æ–°'
           else
-              # ‰Û‘èŠÖ˜AˆÈŠO‚ÍƒXƒ‹[
+              # èª²é¡Œé–¢é€£ä»¥å¤–ã¯ã‚¹ãƒ«ãƒ¼
               return
 
-      # “ŠeƒƒbƒZ[ƒW‚ğ®Œ`
+      # æŠ•ç¨¿ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ•´å½¢
       url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
       if body.content.comment?.id?
           url += "#comment-#{body.content.comment.id}"
@@ -38,7 +38,7 @@ module.exports = (robot) ->
       message += "#{url}"
 
       console.log 'message = ' + message
-      # Slack ‚É“Še
+      # Slack ã«æŠ•ç¨¿
       if message?
           robot.messageRoom room, message
           res.end "OK"
